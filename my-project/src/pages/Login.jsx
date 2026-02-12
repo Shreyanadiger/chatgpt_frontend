@@ -27,7 +27,9 @@ function Login() {
             }
 
             const data = await res.json()
-            localStorage.setItem('token', data.access_token || JSON.stringify(data))
+            localStorage.setItem('access_token', data.access_token)
+            localStorage.setItem('token_type', data.token_type)
+            localStorage.setItem('refresh_token', data.refresh_token)
             navigate('/')
         } catch (err) {
             setError(err.message)
